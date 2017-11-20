@@ -15,6 +15,9 @@ import com.example.a4ia2.picapp.Helpers.Note;
 import com.example.a4ia2.picapp.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import static com.example.a4ia2.picapp.R.id.notesList;
 
@@ -22,6 +25,7 @@ public class NotesActivity extends AppCompatActivity {
 
     private DatabaseManager db;
     private ListView listView;
+    private ArrayList<Note> notes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +49,27 @@ public class NotesActivity extends AppCompatActivity {
                 return;
             case 1:
                 Intent intent = new Intent(NotesActivity.this, EditNoteActivity.class);
-                intent.putExtra("selectedNoteId", which);
+                intent.putExtra("selectedNoteId", selectedNote.getId());
                 startActivity(intent);
                 return;
+            case 2:
+                // sort by Title
+                Collections.sort(notes, new Comparator<Note>() {
+                    @Override
+                    public int compare(Note a, Note b) {
+//                        return 1;
+                        return a.getTitle().compareTo(b.getTitle());
+                    }
+                });
+                return;
             default:
+                displayNotes();
         }
     }
 
     private void displayNotes() {
 
-        final ArrayList<Note> notes = db.getAll();
+        notes = db.getAll();
 
         final NoteArrayAdapter adapter = new NoteArrayAdapter(
                 NotesActivity.this,

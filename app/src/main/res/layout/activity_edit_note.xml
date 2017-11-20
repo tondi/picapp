@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Title"
-        android:id="@+id/title_textview"/>
+        android:id="@+id/titleTextView"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Text"
-        android:id="@+id/text_textview"/>
+        android:id="@+id/descriptionTextView"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="color"
-        android:id="@+id/color_textview"/>
+        android:id="@+id/colorChooseText"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -35,19 +35,19 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:id="@+id/noteRedButton"/>
+            android:id="@+id/editRedButton"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/colorAccent"
-            android:id="@+id/noteBlueButton"/>
+            android:id="@+id/editBlueButton"/>
         <Button
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@color/colorPrimaryDark"
-            android:id="@+id/noteGreenButton"/>
+            android:id="@+id/editGreenButton"/>
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
