@@ -1,7 +1,6 @@
-package com.example.a4ia2.picapp;
+package com.example.a4ia2.picapp.Activites;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -14,6 +13,10 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.a4ia2.picapp.Helpers.CustomImageView;
+import com.example.a4ia2.picapp.Helpers.DatabaseManager;
+import com.example.a4ia2.picapp.R;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -31,6 +34,7 @@ public class PicturesActivity extends AppCompatActivity {
     private FrameLayout removeButton;
     private TextView textMessage;
     private Point size;
+    public DatabaseManager db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,14 @@ public class PicturesActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_pictures);
+
+        // dlaczego tutaj dziala przy przekazaniu do CustomImageView(... this.db)
+        db = new DatabaseManager(
+                PicturesActivity.this, // activity z galerią zdjęć
+                "NotesTondosMateusz.db", // nazwa bazy
+                null,
+                6 //wersja bazy, po zmianie schematu bazy należy ją zwiększyć
+        );
 
         //CustomImageView civ = new CustomImageView(PicturesActivity.this, 0xff00ff00);
         Bundle bundle = getIntent().getExtras();
@@ -92,6 +104,10 @@ public class PicturesActivity extends AppCompatActivity {
         display.getSize(size);
 
         updateImagesList();
+
+
+
+// A TU NIE DZIAŁAŁO i było przypisywane jako null w konstruktorze CustomImageView?
     }
 
     @Override
@@ -135,6 +151,8 @@ public class PicturesActivity extends AppCompatActivity {
             }
         }
 
+
+
         int listSize = pictures.size();
 
         if (listSize == 0) {
@@ -155,7 +173,7 @@ public class PicturesActivity extends AppCompatActivity {
         Boolean leftIsSmaller = true;
         for (File file : pictures) {
             Bitmap betterImage = betterImageDecode(file.getAbsolutePath());
-            CustomImageView civ = new CustomImageView(PicturesActivity.this, file);
+            CustomImageView civ = new CustomImageView(PicturesActivity.this, file, this.db);
 
             if (betterImage.getWidth() >= betterImage.getHeight()){
 

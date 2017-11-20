@@ -1,22 +1,22 @@
-package com.example.a4ia2.picapp;
+package com.example.a4ia2.picapp.Activites;
 
 import android.content.Intent;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+
+import com.example.a4ia2.picapp.R;
 
 import java.io.File;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
 
     private LinearLayout cameraLayout;
     private LinearLayout albumsLayout;
+    private LinearLayout notesLayout;
     public static String photosPath;
 
     @Override
@@ -64,6 +64,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,AlbumsActivity.class);
                 intent.putExtra("key", "hello");
 
+                startActivity(intent);
+            }
+        });
+
+        notesLayout = (LinearLayout) findViewById(R.id.notesLayout);
+        notesLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,NotesActivity.class);
+//                intent.putExtra("key", "hello");
+//
                 startActivity(intent);
             }
         });

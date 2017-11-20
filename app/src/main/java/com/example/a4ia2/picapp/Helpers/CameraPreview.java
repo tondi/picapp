@@ -1,4 +1,4 @@
-package com.example.a4ia2.picapp;
+package com.example.a4ia2.picapp.Helpers;
 
 import android.content.Context;
 import android.hardware.Camera;

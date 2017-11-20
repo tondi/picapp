@@ -1,4 +1,4 @@
-package com.example.a4ia2.picapp;
+package com.example.a4ia2.picapp.Activites;
 
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.example.a4ia2.picapp.R;
 
 import java.io.File;
 

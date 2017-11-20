@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
-    tools:context=".CameraActivity">
+    tools:context=".Activites.CameraActivity">
 
     <FrameLayout
 
@@ -24,28 +24,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/white_balance_button"
+            android:id="@+id/whiteBalance"
             android:text="White Balance" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/images_sizes_button"
+            android:id="@+id/imageSize"
             android:text="Image Size" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/color_effects_button"
+            android:id="@+id/colorEffects"
             android:text="Color Effects" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:id="@+id/exposure_compensation_button"
+            android:id="@+id/exposureCompensation"
             android:text="Exposure Compensation" />
     </LinearLayout>
 
@@ -60,14 +60,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/takePicture"
-            android:src="@drawable/ic_add_black_48dp" />
+            android:src="@drawable/ic_photo_camera_black_48dp" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/savePicture"
-            android:src="@drawable/ic_add_black_48dp" />
+            android:src="@drawable/ic_save_black_48dp" />
 
     </LinearLayout>
 
